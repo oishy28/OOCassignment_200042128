@@ -6,6 +6,12 @@ public class Calender {
     int year;
     int arr[]={1,2,3,4,5,6,7,8,9,10,11,12};
 
+    public Calender(int day, int month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+
     public boolean IfLeapYear()
     {
 
@@ -50,7 +56,7 @@ public class Calender {
     }
 
 
-    public void calenderMaking(int month,int day,int year) {
+    public String calenderMaking(int month, int day, int year) {
         if (ifMonthWith30Days(month) && day == 31) {
             day = 1;
             month++;
@@ -59,7 +65,7 @@ public class Calender {
             month++;
         } else if ((month == 12) && day == 31) {
             day = 1;
-            month++;
+            month=1;
             year++;
         } else if (fabruary(month)) {
             if (IfLeapYear() && day == 29) {
@@ -72,8 +78,14 @@ public class Calender {
                 }
             }
 
+
+        }
+        else
+        {
+            day = day +1;
         }
 
 
+        return day+"-"+month+"-"+year;
     }
 }
